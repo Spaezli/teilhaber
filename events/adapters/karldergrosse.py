@@ -1,13 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
-
-
-
-
-
-
 def fetch_calendar_items(url):
     # Send HTTP request to the URL
     response = requests.get(url)
@@ -55,5 +48,7 @@ def fetch_calendar_items(url):
 
     return calendar_items
 
-url = "https://www.karldergrosse.ch/programm/kalender/?page=1&per_page=10"
+url = "https://www.karldergrosse.ch/programm/kalender/?page=2&per_page=2"
 fetch_calendar_items(url)
+
+# Chromium driver:
