@@ -2,29 +2,37 @@ import flet as ft
 
 
 def main(page: ft.Page):
-    page.title = "Flet counter example"
+    page.title = "Teilhaber"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    txt_number = ft.TextField(value="0", text_align=ft.TextAlign.RIGHT, width=100)
-
-    def minus_click(e):
-        txt_number.value = str(int(txt_number.value) - 1)
-        page.update()
-
-    def plus_click(e):
-        txt_number.value = str(int(txt_number.value) + 1)
-        page.update()
-
     page.add(
-        ft.Row(
-            [
-                ft.IconButton(ft.icons.REMOVE, on_click=minus_click),
-                txt_number,
-                ft.IconButton(ft.icons.ADD, on_click=plus_click),
-            ],
-            alignment=ft.MainAxisAlignment.CENTER,
+        ft.Card(
+            content=ft.Container(
+                content=ft.Column(
+                    [
+                        ft.ListTile(
+                            leading=ft.Icon(ft.icons.ALBUM),
+                            title=ft.Text("Soliparty feministischer Streik"),
+                            subtitle=ft.Text(
+                                "KAFF Kulturlokal, Frauenfeld"
+                            ),
+                        ),
+                        ft.Row(
+                            [
+                                ft.TextButton("Participate"), 
+                                ft.TextButton("Recommend"),
+                                ft.TextButton("Next")
+                            ],
+                            alignment=ft.MainAxisAlignment.END,
+                        ),
+                    ]
+                ),
+                width=600,
+                padding=10,
+            )
         )
     )
+
 
 
 ft.app(main)
