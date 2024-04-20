@@ -11,7 +11,7 @@ Our prototype is completely open source (licensed using the [Unilicense](https:/
 
 Check out our sample on the new DataHub Cloud: 
 
-<a href="https://datahub.io/@loleg/teilhaber-in" target="_blank" class="btn btn-light btn-lg"><img style="height:1.4em" src="https://datahub.io/datahub-cube.svg"> Data Package</a>
+<a href="https://datahub.io/@loleg/teilhaber-in" target="_blank" class="btn btn-light btn-lg"><img height="32" src="https://datahub.io/datahub-cube.svg"> Data Package</a>
 
 Tools used:
 
