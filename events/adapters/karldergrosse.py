@@ -1,54 +1,41 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 
-def fetch_calendar_items(url):
-    # Send HTTP request to the URL
+def clean_string(input_string):
+    # Remove leading and trailing spaces, tabs, newline, and Zero Width Spaces
+    return input_string.strip(' \t\n\r\u200B')
+
+def fetch_calendar_items_to_csv(url, filename):
     response = requests.get(url)
-    # Raise an exception if the request was unsuccessful
     response.raise_for_status()
-
-    # Parse the HTML content of the page with BeautifulSoup
     soup = BeautifulSoup(response.text, 'html.parser')
-
-    # Find all elements with the class 'CalendarItem'
     calendar_items = soup.find_all(class_='CalendarItem')
+    data_to_write = []
 
-    # Print each item or return them
     for item in calendar_items:
         time_element = item.find('time')
-
-        if time_element:
-            datetime_attribute = time_element.get('datetime')
-            #visible_date = first_time_element.text
+        datetime_attribute = clean_string(time_element.get('datetime')) if time_element else ''
 
         title_element = item.find(class_='CalendarItem__title')
-
-        if title_element:
-            title_text = title_element.text.strip()  # Strip to remove any extra whitespace
-            print(f"Calendar Item - Title: {title_text}")
+        title_text = clean_string(title_element.text) if title_element else ''
 
         subtitle_element = item.find(class_='CalendarItem__subtitle')
-
-        if subtitle_element:
-            subtitle_text = subtitle_element.text.strip()
-            print(f"Calendar SubItem - Title: {subtitle_text}")
+        subtitle_text = clean_string(subtitle_element.text) if subtitle_element else ''
 
         tag_elements = item.find_all(class_='EventTag__link')
-
-        if tag_elements:
-            tags = [tag.text.strip() for tag in tag_elements]
-            print(f"Calendar Item - Tags: {tags}")
+        tags = ', '.join(clean_string(tag.text) for tag in tag_elements)
 
         link_element = item.find('a', class_='CalendarItem__link')
+        href = 'https://www.karldergrosse.ch' + clean_string(link_element['href']) if link_element else ''
 
-        if link_element:
-            href = 'https://www.karldergrosse.ch' + link_element['href']  # Extract the href attribute
-            print(f"Calendar Item - Link: {href}")
+        data_to_write.append((datetime_attribute, title_text, subtitle_text, tags, href))
 
+    with open(filename, 'w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Datetime', 'Title', 'Subtitle', 'Tags', 'Link'])
+        writer.writerows(data_to_write)
 
-    return calendar_items
-
-url = "https://www.karldergrosse.ch/programm/kalender/?page=2&per_page=2"
-fetch_calendar_items(url)
-
-# Chromium driver:
+url = "https://www.karldergrosse.ch/programm/kalender/?page=1&per_page=10"
+filename = "karldergrosse_events.csv"
+fetch_calendar_items_to_csv(url, filename)
