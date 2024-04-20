@@ -3,8 +3,11 @@ from bs4 import BeautifulSoup
 import csv
 
 def clean_string(input_string):
+    # Replace all semicolons with colons to avoid delimiter conflict in CSV
+    input_string = input_string.replace(';', ':')
     # Remove leading and trailing spaces, tabs, newline, and Zero Width Spaces
     return input_string.strip(' \t\n\r\u200B')
+
 
 def fetch_calendar_items_to_csv(url, filename):
     response = requests.get(url)
@@ -32,7 +35,7 @@ def fetch_calendar_items_to_csv(url, filename):
         data_to_write.append((datetime_attribute, title_text, subtitle_text, tags, href))
 
     with open(filename, 'w', newline='', encoding='utf-8') as file:
-        writer = csv.writer(file)
+        writer = csv.writer(file, delimiter=';')  # Specify delimiter as semicolon
         writer.writerow(['Datetime', 'Title', 'Subtitle', 'Tags', 'Link'])
         writer.writerows(data_to_write)
 
