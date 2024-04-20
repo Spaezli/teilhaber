@@ -16,8 +16,20 @@ def getEvents():
     return dataRows
 
 
-def DiscoverView():
+def DiscoverView(page: ft.Page, participationView):
 
+    def goParticipate(e):
+        #searchfield_control = page.views[0].controls[1].controls[0]
+        page.session.set("query", tb1.value)
+        page.go("/participate")
+
+
+    img = ft.Image(
+        src=f"./assets/teilhaber_logo.png",
+        width=536,
+        height=422,
+        fit=ft.ImageFit.CONTAIN,
+    )
     data_table = ft.DataTable(
             columns=[
                 ft.DataColumn(ft.Text("Title")),
@@ -26,10 +38,16 @@ def DiscoverView():
             ],
             rows=getEvents()
         )
-    tb1 = ft.TextField(label="Search for Events")
+    tb1 = ft.TextField(
+        label="Search for Events",
+        value=""
+    )
 
-
-    return data_table
+    return ft.Column([
+        img,
+        tb1,
+        ft.ElevatedButton("Select", on_click=goParticipate)
+    ])
 
 #def DiscoverView():
 #    header_text = ft.Text("This is a header text above the table.", style=ft.TextStyle(size=16))

@@ -5,7 +5,8 @@ BASEROW_TOKEN = "cIGCSMBVwZHZcozqDwgtffKV9qGLU3Dk"
 BASEROW_URL = "https://api.baserow.io/api/database/rows/table/286062/"
 
 
-def get_data(url=BASEROW_URL, filter=None):
+def get_data(filter=None):
+    url = BASEROW_URL
     token = BASEROW_TOKEN
 
     url = url + '?'

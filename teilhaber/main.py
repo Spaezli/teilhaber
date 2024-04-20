@@ -2,41 +2,40 @@ import flet as ft
 
 from views.participation import ParticipationView
 from views.discover import DiscoverView
-from remote import get_data
 
 
 def main(page: ft.Page):
     page.title = "Teilhaber"
     #page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
-    data_cached = get_data()
+    participationView = ParticipationView(page)
 
     def route_change(route):
         page.views.clear()
-        page.views.append(
-            ft.View(
-                "/",
-                [
-                    ft.AppBar(title=ft.Text("Discover"), bgcolor=ft.colors.AMBER_200),
-                    DiscoverView(),
-                    ft.ElevatedButton("Select", on_click=lambda _: page.go("/participate")),
-                    page.navigation_bar,
-                ],
+        if page.route == "/":
+            page.views.append(
+                ft.View(
+                    "/",
+                    [
+                        ft.AppBar(title=ft.Text("Discover"), bgcolor=ft.colors.AMBER_200),
+                        DiscoverView(page, participationView),
+                        page.navigation_bar,
+                    ],
+                )
             )
-        )
-        if page.route == "/participate":
+        elif page.route == "/participate":
             page.views.append(
                 ft.View(
                     "/participate",
                     [
                         ft.AppBar(title=ft.Text("Participate"), bgcolor=ft.colors.CYAN_ACCENT_400),
-                        ParticipationView(page, data_cached),
+                        participationView,
                         ft.ElevatedButton("Evaluate", on_click=lambda _: page.go("/evaluate")),
                         page.navigation_bar,
                     ],
                 )
             )
-        if page.route == "/evaluate":
+        elif page.route == "/evaluate":
             page.views.append(
                 ft.View(
                     "/evaluate",
