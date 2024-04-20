@@ -1,7 +1,7 @@
 import flet as ft
 
 from views.participation import ParticipationView
-from remote import GetParticipations
+from remote import get_data
 
 
 def main(page: ft.Page):
