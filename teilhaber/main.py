@@ -8,6 +8,8 @@ def main(page: ft.Page):
     page.title = "Teilhaber"
     #page.vertical_alignment = ft.MainAxisAlignment.CENTER
 
+    data_cached = get_data()
+
     def route_change(route):
         page.views.clear()
         page.views.append(
@@ -26,7 +28,7 @@ def main(page: ft.Page):
                     "/participate",
                     [
                         ft.AppBar(title=ft.Text("Participate"), bgcolor=ft.colors.CYAN_ACCENT_400),
-                        ParticipationView(),
+                        ParticipationView(data_cached),
                         ft.ElevatedButton("Evaluate", on_click=lambda _: page.go("/evaluate")),
                         page.navigation_bar,
                     ],

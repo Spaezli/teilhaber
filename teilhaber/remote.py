@@ -2,10 +2,17 @@ import requests
 
 BASEROW_TOKEN = "cIGCSMBVwZHZcozqDwgtffKV9qGLU3Dk"
 
-BASEROW_URL = "https://api.baserow.io/api/database/rows/table/286062/?user_field_names=true"
+BASEROW_URL = "https://api.baserow.io/api/database/rows/table/286062/"
 
-def get_data(url=BASEROW_URL):
+
+def get_data(url=BASEROW_URL, filter=None):
     token = BASEROW_TOKEN
+
+    url = url + '?'
+    if filter is not None:
+        url = url + '&search=' + filter
+    url = url + '&user_field_names=true'
+
     resp = requests.get(
         url, headers={"Authorization": f"Token {token}"}
     )
