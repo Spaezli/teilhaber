@@ -1,7 +1,7 @@
 import flet as ft
 
 from views.participation import ParticipationView
-from remote import get_data
+from views.discover import DiscoverView
 
 
 def main(page: ft.Page):
@@ -17,6 +17,7 @@ def main(page: ft.Page):
                 "/",
                 [
                     ft.AppBar(title=ft.Text("Discover"), bgcolor=ft.colors.AMBER_200),
+                    DiscoverView(),
                     ft.ElevatedButton("Select", on_click=lambda _: page.go("/participate")),
                     page.navigation_bar,
                 ],
