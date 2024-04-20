@@ -1,0 +1,122 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "evaluation",
+      "path": "data/export - Evaluation - Grid.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Ident",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Participation",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Presence",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Actions",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Impact",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Accessibility",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Feedback",
+            "type": "string",
+            "format": "default"
+          }
+        ]
+      }
+    },
+    {
+      "name": "participation",
+      "path": "data/export - Participation - Grid.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Title",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Subtitle",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Tags",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Link",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Date",
+            "type": "integer",
+            "format": "default"
+          },
+          {
+            "name": "Source",
+            "type": "string",
+            "format": "default"
+          },
+          {
+            "name": "Virtual",
+            "type": "boolean",
+            "format": "default"
+          }
+        ]
+      }
+    }
+  ],
+  "keywords": [
+    "participation"
+  ],
+  "name": "teilhaberin-proto",
+  "title": "Teilhaber:in Prototype",
+  "description": "A prototype started at Hack4SocialGood 2024, where we created an app that supports social science research into civic participation. For more background, please visit our project page.",
+  "homepage": "https://bd.hack4socialgood.ch/project/89",
+  "contributors": [
+    {
+      "title": "Hack4SocialGood",
+      "role": "author"
+    }
+  ],
+  "licenses": [
+    {
+      "title": "Unilicense",
+      "path": "https://github.com/Spaezli/teilhaber/blob/main/LICENSE"
+    }
+  ]
+}
