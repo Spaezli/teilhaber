@@ -22,7 +22,7 @@ To run the app, once you have [Poetry installed](https://python-poetry.org):
 ```
 poetry install
 poetry shell
-flet run [app_directory]
+flet run [flet run teilhaber]
 ```
 
 # License
