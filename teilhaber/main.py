@@ -28,7 +28,7 @@ def main(page: ft.Page):
                     "/participate",
                     [
                         ft.AppBar(title=ft.Text("Participate"), bgcolor=ft.colors.CYAN_ACCENT_400),
-                        ParticipationView(data_cached),
+                        ParticipationView(page, data_cached),
                         ft.ElevatedButton("Evaluate", on_click=lambda _: page.go("/evaluate")),
                         page.navigation_bar,
                     ],
