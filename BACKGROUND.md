@@ -18,16 +18,17 @@ Tools used:
 - [Flet](https://Flet.dev/) ([Apache license](https://github.com/flet-dev/flet?tab=Apache-2.0-1-ov-file#readme)) - mobile/desktop/web app framework 
 - [Baserow](https://baserow.io/) ([mixed license](https://github.com/bram2w/baserow?tab=License-1-ov-file#readme)) - user friendly database and form builder
 - [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/) ([MIT license](https://git.launchpad.net/beautifulsoup/tree/LICENSE)) - web scraping and parsing
+- Pen and paper and tea and pizza
 
-All of these tools are open source, and coded using the [Python](https://www.python.org/) programming language.
+All of the open source tools are developed using the [Python](https://www.python.org/) programming language.
 
 ### Next steps:
 
-- Connect to event sites \([Hinto](https://hinto.ch) etc. - see [our notes here](https://hackmd.io/@oleg/rJzXIfeb0)\)
-- Deploy application to the public (WIP)
-- Further analysis & development
+- Connect data from event sites \([Hinto](https://hinto.ch) etc. - see [our notes here](https://hackmd.io/@oleg/rJzXIfeb0)\)
+- Deploy application to get input from the public (WIP)
+- Further analysis & development with stakeholders
 
-Thanks to our experts: Marisol Keller, Celine Colombo, @amunizp
+Thanks to our experts: Marisol Keller, Celine Colombo, Andrés Piniella
 
 ![](https://s3.dribdat.cc/h4sg/2024/16/0IMIDDPK0BUCGVF43KR4RWQB/IMG_20240419_19491901.jpeg)
 

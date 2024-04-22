@@ -3,7 +3,7 @@ Teilhaber:in
 
 A prototype started at Hack4SocialGood 2024
 
-We are using the Flet framework connected to a Baserow database to create an app that supports social science research into civic participation. For more details, please see the [BACKGROUND](BACKGROUND.md) or visit our project page](https://bd.hack4socialgood.ch/project/89).
+We are using the Flet framework connected to a Baserow database to create an app that supports social science research into civic participation. For more details, please see the [BACKGROUND](BACKGROUND.md) or visit our [Dribdat page](https://bd.hack4socialgood.ch/project/89).
 
 # Development
 
