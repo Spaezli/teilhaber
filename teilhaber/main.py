@@ -52,7 +52,7 @@ def main(page: ft.Page):
                             PROJECT_INFO_URL, web_window_name='_blank'
                         )),
                         ft.Image(
-                            src=f"./teilhaber/assets/IMG_20240419_19491901.jpg",
+                            src=f"/IMG_20240419_19491901.jpg",
                             fit=ft.ImageFit.CONTAIN,
                         ),
                         page.navigation_bar,
@@ -104,4 +104,4 @@ def main(page: ft.Page):
     page.go(page.route)
 
 
-ft.app(target=main)
+ft.app(target=main, assets_dir="assets")

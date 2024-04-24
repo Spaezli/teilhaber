@@ -25,7 +25,7 @@ def DiscoverView(page: ft.Page, participationView):
 
 
     img = ft.Image(
-        src=f"./teilhaber/assets/teilhaber_logo.png",
+        src=f"/teilhaber_logo.png",
         width=536,
         height=422,
         fit=ft.ImageFit.CONTAIN,
